@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-class Books extends Component {
+className Books extends Component {
   state = {
     books: []
   };
@@ -26,10 +26,10 @@ class Books extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search Type
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
+            <div className="dropdown">
+              <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search Type
+              <span className="caret"></span></button>
+              <ul className="dropdown-menu">
                 <li><a href="#">songs</a></li>
                 <li><a href="#">artist</a></li>
               </ul>

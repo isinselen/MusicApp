@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-function music (music){
+function Music (music){
   var publicKey = 'AIzaSyCOrYDn-Rpq-DIqgvv5naHsrsCfjPcqby4'
 
-  var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + music;
+  var queryURL = "https://www.googleapis.com/youtube/v3/search=" + music;
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -25,6 +25,6 @@ function music (music){
 }
 
 
-const music = mongoose.model("music", musicSchema);
+const music = mongoose.model("Music", musicSchema);
 
-module.exports = music;
+module.exports = Music;
