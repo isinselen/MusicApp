@@ -35,10 +35,10 @@ class Books extends Component {
               </ul>
             </div><br></br>
 
-          <form>
+          {/* <form>
             <Input name="title" placeholder="song name / artist name" />
             <FormBtn>Submit</FormBtn>
-          </form>
+          </form> */}
           </Col>
         {/* <Col size="md-6 sm-12">
           <Jumbotron>
