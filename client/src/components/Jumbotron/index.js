@@ -1,6 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import YouTube from 'react-youtube'
+import axios from 'axios'
+import jsonpAdapter from 'axios-jsonp'
+
 
 function Jumbotron({ children }) {
+    const opts = {
+    height: '390',
+    width: '640',
+    playerVars: { // https://developers.google.com/youtube/player_parameters
+      autoplay: 1
+    }
+  };
+  const [artist, setArtist] = useState('')
+  const [song, setSong] = useState('')
+  const [videoId, setVideoId] = useState(null)
+  const [videoLyrics, setVideoLyrics] = useState('')
+
+  const handleArtistSearch = () => {
+    axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCOrYDn-Rpq-DIqgvv5naHsrsCfjPcqby4&q=${encodeURIComponent(song + ' - ' + artist)}&part=id`)
+      .then(res => {
+        console.log('GOT SOME DATA FROM YOUTUBE', res)
+        const firstVideoResult = res.data.items.find(item => item.id.kind === 'youtube#video')
+        setVideoId(firstVideoResult.id.videoId)
+      })
+      .catch(err => console.log('Error trying to get Youtube data', err))
+
+    axios.get(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get`, {
+      params: {
+        format: 'jsonp',
+        callback: 'jsonp_callback',
+        apikey: '4841837f851469f3b5b537d381f89006',
+        q_artist: artist,
+        q_track: song
+      },
+      headers: { 'content-type': 'application/javascript' },
+      adapter: jsonpAdapter,
+    })
+      .then(res => {
+        console.log('GOT MUSIXMATCH DATA', res.data.message.body.lyrics.lyrics_body)
+        setVideoLyrics(res.data.message.body.lyrics.lyrics_body)
+      })
+      .catch(err => console.log('Error getting Musixmatch data', err))
+  }
   return (
     <div>
     <div class="jumbotron jumbotron-fluid text-white">
@@ -16,47 +58,29 @@ function Jumbotron({ children }) {
   
   </div>
   <section style={{background: '#EBF8FD',  'min-height' : '500px'}}>
-    {/* <h3 class="text-center pt-3">Categories</h3>
-    <div class="container">
-      <div class="row pt-3">
-        <div class="col-2">
-          <a href="">
-            <div class="circle" style={{background: 'orange'}}><i class="fas fa-3x fa-home"></i></div>
-          </a>
-  
-        </div>
-        <div class="col-2">
-          <a href=""> 
-            <div class="circle" style={{background: '#20C3F3'}}><i class="fas fa-3x fa-mobile-alt"></i></div>
-          </a>
-        </div>
-        <div class="col-2">
-          <a href="">
-            <div class="circle" style={{background: '#A175D9'}}><i class="fas fa-3x fa-football-ball"></i></div>
-          </a>
-        </div>
-        <div class="col-2">
-          <a href="">
-            <div class="circle" style={{background: '#A3CE71'}}><i class="fas fa-3x fa-seedling"></i></div>
-          </a>
-        </div>
-        <div class="col-2">
-          <a href="">
-            <div class="circle" style={{background: '#FF3F55'}}><i class="fas fa-3x fa-tshirt"></i></div>
-          </a>
-        </div>
-        <div class="col-2">
-          <a href="">
-            <div class="circle" style={{background: '#E1C340'}}><i class="fas fa-3x fa-hand-point-right"></i></div>
-          </a>
-        </div>
-      </div>
-    </div> */}
+    
   
     <div class="container">
       <div class="row">
         <div class="col-12 text-center pt-3">
           <h3  id="1">MELODY Music App</h3>
+
+          {
+        videoId &&
+        <YouTube
+          videoId={ videoId }
+          opts={opts}
+          onReady={ () => null }
+        />
+      }
+      {
+        videoLyrics &&
+        <p>{ videoLyrics }</p>
+      }
+      <input onChange={ e => setArtist(e.target.value) } placeholder='artist' />
+      <input onChange={ e => setSong(e.target.value) } placeholder='song' />
+      <button onClick={ handleArtistSearch }><strong>SEARCH</strong></button>
+
         </div>
       </div>
   

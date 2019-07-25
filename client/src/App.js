@@ -50,8 +50,8 @@ function App() {
   return (
     <div>
       <Nav />
-     <Jumbotron/>
-      {
+     <Jumbotron />
+      {/* {
         videoId &&
         <YouTube
           videoId={ videoId }
@@ -66,6 +66,7 @@ function App() {
       <input onChange={ e => setArtist(e.target.value) } placeholder='artist' />
       <input onChange={ e => setSong(e.target.value) } placeholder='song' />
       <button onClick={ handleArtistSearch }>SEARCH FOR AN ARTIST'S SONG</button>
+      */}
     </div>
   );
 }
