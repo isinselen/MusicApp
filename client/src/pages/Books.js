@@ -55,11 +55,6 @@ class Books extends Component {
             <Input name="title" placeholder="song name / artist name" />
             <FormBtn>Submit</FormBtn>
           </form> */}
-          <Form handleINputChange = {this.handleINputChange}
-            handleFormSubmit = {this.handleFormSubmit}
-            q={this.state.q}
-            artistName = {this.state.artistName}
-          />
           </Col>
         {/* <Col size="md-6 sm-12">
           <Jumbotron>
