@@ -4,38 +4,22 @@ import API from "../utils/API";
 import DeleteBtn from "../components/DeleteBtn";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form/Form";
-import Form from "../components/Form/Form";
+import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Books extends Component {
   state = {
-    q: "",
-    songs: [],
-    artistName: ""
+    books: []
   };
 
   componentDidMount() {
     this.loadBooks();
   }
-  handleINputChange  = event => {
-    const {name, value } = event.target;
-    this.setState({
-      [name]: value
-    })
-  }
 
   loadBooks = () => {
-    API.getBooks({
-      q: this.state.q,
-      artistName: this.state.artistName
-    })
-      .then(res => this.setState({ songs: res.data }))
+    API.getBooks()
+      .then(res => this.setState({ books: res.data }))
       .catch(err => console.log(err));
   };
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.loadBooks();
-  }
 
   render() {
     return (
