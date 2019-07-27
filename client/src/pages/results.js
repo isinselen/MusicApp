@@ -25,6 +25,12 @@ className Books extends Component {
     return (
       <Container fluid>
         <Row>
+<<<<<<< HEAD
+         <col size="md-4">
+            
+         </col>
+         <col size="md-4">
+=======
           <Col size="md-6">
             <div className="dropdown">
               <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search Type
@@ -34,33 +40,12 @@ className Books extends Component {
                 <li><a href="#">artist</a></li>
               </ul>
             </div><br></br>
+>>>>>>> b8724df8330b49f9dc22e123ff14a46b665fe07e
 
-          <form>
-            <Input name="title" placeholder="song name / artist name" />
-            <FormBtn>Submit</FormBtn>
-          </form>
-          </Col>
-        {/* <Col size="md-6 sm-12">
-          <Jumbotron>
-            <h1>Books On My List</h1>
-          </Jumbotron>
-          {this.state.books.length ? (
-            <List>
-              {this.state.books.map(book => (
-                <ListItem key={book._id}>
-                  <a href={"/books/" + book._id}>
-                    <strong>
-                      {book.title} by {book.author}
-                    </strong>
-                  </a>
-                  <DeleteBtn />
-                </ListItem>
-              ))}
-            </List>
-          ) : (
-              <h3>No Results to Display</h3>
-            )}
-        </Col> */}
+         </col>
+         <col size="md-4">
+
+         </col>
         </Row>
       </Container >
     );

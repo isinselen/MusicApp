@@ -5,7 +5,6 @@ import jsonpAdapter from 'axios-jsonp'
 
 import Books from "./pages/Books";
 import Nav from "./components/Nav";
-import Jumbotron from "./components/Jumbotron"
 
 function App() {
   const opts = {
@@ -50,7 +49,7 @@ function App() {
   return (
     <div>
       <Nav />
-     <Jumbotron/>
+      <Books />
       {
         videoId &&
         <YouTube
