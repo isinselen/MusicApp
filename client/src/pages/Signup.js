@@ -1,20 +1,24 @@
 import React, { useState } from "react";
+import API from "../utils/API";
 
 
-class Signup extends React.Component {
-    state = {
-        signup: []
-    };
+const Signup = () => {
+    const [name, setName] = useState("")
 
-    render() {
-        return (
-            <div>
-                <input placeholder = "Create Username" />
-                <input placeholder = "Create Password" />
-            </div>
-        )
-
+    const handleSubmit = () => {
+        API.createUser(name)
+        .then(userId => {
+            localStorage.setItem('userId', userId)
+            window.location = '/'
+        })
     }
+
+    return (
+        <form onSubmit={ handleSubmit }>
+            <input onChange={event => setName(event.target.value)} placeholder="Name" />
+            <button type="submit" > Submit </button>
+        </form>
+    )
 }
 
 export default Signup;

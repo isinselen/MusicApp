@@ -1,3 +1,4 @@
 module.exports = {
-  // music: require("./music")
+  Search: require("./search"),
+  User: require("./user")
 };
