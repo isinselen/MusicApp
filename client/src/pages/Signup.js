@@ -5,10 +5,12 @@ import API from "../utils/API";
 const Signup = () => {
     const [name, setName] = useState("")
 
-    const handleSubmit = () => {
+    const handleSubmit = e => {
+        e.preventDefault()
         API.createUser(name)
-        .then(userId => {
-            localStorage.setItem('userId', userId)
+        .then(user => {
+            console.log('Got newly created user in component', user)
+            localStorage.setItem('userId', user.data._id)
             window.location = '/'
         })
     }

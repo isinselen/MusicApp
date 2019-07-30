@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron"
 import API from "../utils/API";
@@ -7,7 +7,7 @@ import API from "../utils/API";
 class Home extends React.Component {
     state = {
         loaded:false, 
-        searches:[]
+        user: null
     };
 
     componentDidMount(){
@@ -15,8 +15,8 @@ class Home extends React.Component {
         if (userId){
             API.getUser(userId)
             .then(user => {
-                console.log(user)
-                this.setState({loaded: true, searches:user.searches})
+                console.log('Got existing user in component', user)
+                this.setState({ loaded: true, user: user.data })
             })
         } else{
             window.location = '/signup'
@@ -26,8 +26,11 @@ class Home extends React.Component {
     render() {
         return (
             <div>
+                {
+                    console.log('this.state.user.searches', this.state.user && this.state.user.searches)
+                }
                 <Nav />
-                <Jumbotron />
+                <Jumbotron user={ this.state.user } />
             </div>
         )
 

@@ -2,16 +2,16 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getUser: function() {
-    return axios.get("/api/user");
+  getUser: function(userId) {
+    return axios.get(`/user/${userId}`);
   },
   
   // Saves a book to the database
   createUser: function(name) {
-    return axios.post("/api/user", name);
+    return axios.post("/user", { name: name })
   },
-  saveSearch: function(artist,song) {
-    return axios.post("api/search", {artist:artist, song:song})
+  updateUser: function(userId, artist, song) {
+    return axios.put("/user/addSearch", { userId: userId, artist: artist, song: song })
   },
   
 };
