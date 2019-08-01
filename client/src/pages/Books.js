@@ -6,17 +6,17 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-class Books extends Component {
+class Music extends Component {
   state = {
-    books: []
+    music: []
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadMusic();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  loadMusic = () => {
+    API.getMusic()
       .then(res => this.setState({ books: res.data }))
       .catch(err => console.log(err));
   };
@@ -67,4 +67,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Music;
