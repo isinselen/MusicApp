@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Nav() {
   return (
@@ -7,8 +7,7 @@ function Nav() {
       <a className="navbar-brand" href="/">
         Melody
       </a>
-      <Link to={`/login`} activeClassName="active">Login</Link>
-      <Link to={`/signup`} activeClassName="active">Signup</Link>
+      <NavLink to={`/signup`} activeClassName="active">Signup</NavLink>
     </nav>
   );
 }

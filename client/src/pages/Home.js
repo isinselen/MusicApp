@@ -3,14 +3,13 @@ import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron"
 import API from "../utils/API";
 
-
 class Home extends React.Component {
     state = {
         loaded:false, 
         user: null
     };
 
-    componentDidMount(){
+    componentDidMount() {
         const userId = localStorage.getItem("userId");
         if (userId){
             API.getUser(userId)

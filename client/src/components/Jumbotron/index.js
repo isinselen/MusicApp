@@ -19,12 +19,6 @@ const Jumbotron = ({ user }) => {
 
   const handleArtistSearch = () => {
     const promise1 = axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCOrYDn-Rpq-DIqgvv5naHsrsCfjPcqby4&q=${encodeURIComponent(song + ' - ' + artist)}&part=id`)
-    // .then(res => {
-    //   console.log('GOT SOME DATA FROM YOUTUBE', res)
-    //   const firstVideoResult = res.data.items.find(item => item.id.kind === 'youtube#video')
-    //   setVideoId(firstVideoResult.id.videoId)
-    // })
-    // .catch(err => console.log('Error trying to get Youtube data', err))
 
     const promise2 = axios.get(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get`, {
       params: {
@@ -37,11 +31,6 @@ const Jumbotron = ({ user }) => {
       headers: { 'content-type': 'application/javascript' },
       adapter: jsonpAdapter,
     })
-    // .then(res => {
-    //   console.log('GOT MUSIXMATCH DATA', res.data.message.body.lyrics.lyrics_body)
-    //   setVideoLyrics(res.data.message.body.lyrics.lyrics_body)
-    // })
-    // .catch(err => console.log('Error getting Musixmatch data', err))
 
     return Promise.all([promise1, promise2])
       .then(results => {
@@ -52,26 +41,21 @@ const Jumbotron = ({ user }) => {
         console.log('GOT MUSIXMATCH DATA', results[1].data.message.body.lyrics.lyrics_body)
         setVideoLyrics(results[1].data.message.body.lyrics.lyrics_body)
 
-        API.updateUser(user._id, artist, song)
+        if (user)
+          API.updateUser(user._id, artist, song)
       })
   }
 
   return (
     <div>
-      <div
-        style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-        className="jumbotron"
-      >
-        {children}
-      </div>
-      <div class="container text-center pt-5">
-        <i class="fas fa-angle-double-down fa-3x animated swing delay-1s"></i>
+      <div className="container text-center pt-5">
+        <i className="fas fa-angle-double-down fa-3x animated swing delay-1s"></i>
       </div>
 
-      <section style={{ background: '#EBF8FD', 'min-height': '500px' }}>
-        <div class="container">
-          <div class="row">
-            <div class="col-12 text-center pt-3">
+      <section style={{ background: '#EBF8FD', minHeight: '500px' }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-12 text-center pt-3">
               <h3 id="1">MELODY Music App</h3>
               {
                 videoId &&
