@@ -56,7 +56,7 @@ const Jumbotron = ({ user }) => {
       <section style={{ background: '#EBF8FD', minHeight: '500px' }}>
         <div className="container">
           <div className="row">
-            <div className="col-12 text-center pt-3">
+            <div className="exampleClass col-12 text-center pt-3">
               <h3 id="1">MELODY Music App</h3>
                 <input onChange={e => setArtist(e.target.value)} placeholder='artist' />
                 <input onChange={e => setSong(e.target.value)} placeholder='song' />
