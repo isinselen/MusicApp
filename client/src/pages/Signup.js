@@ -7,6 +7,7 @@ const Signup = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        console.log("here")
         API.createUser(name)
         .then(user => {
             console.log('Got newly created user in component', user)
