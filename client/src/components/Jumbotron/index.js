@@ -58,21 +58,28 @@ const Jumbotron = ({ user }) => {
           <div className="row">
             <div className="exampleClass col-12 text-center pt-3">
               <h3 id="1">MELODY Music App</h3>
-              {
-                videoId &&
-                <YouTube
-                  videoId={videoId}
-                  opts={opts}
-                  onReady={() => null}
-                />
-              }
-              {
-                videoLyrics &&
-                <p>{videoLyrics}</p>
-              }
-              <input onChange={e => setArtist(e.target.value)} placeholder='artist' />
-              <input onChange={e => setSong(e.target.value)} placeholder='song' />
-              <button onClick={handleArtistSearch}><strong>SEARCH</strong></button>
+                <input onChange={e => setArtist(e.target.value)} placeholder='artist' />
+                <input onChange={e => setSong(e.target.value)} placeholder='song' />
+                <button onClick={handleArtistSearch}><strong>SEARCH</strong></button>
+                <div className="resultSection">
+                  <span className="videoSection">
+                    {
+                      videoId &&
+                      <YouTube
+                        videoId={videoId}
+                        opts={opts}
+                        onReady={() => null}
+                      />
+                    }
+                  </span>
+                  <span className="lyricsSection">
+                    {
+                      videoLyrics &&
+                      <p>{videoLyrics}</p>
+                    }
+                  </span>
+                </div>
+
             </div>
           </div>
         </div>
