@@ -3,6 +3,7 @@ import YouTube from 'react-youtube'
 import axios from 'axios'
 import jsonpAdapter from 'axios-jsonp'
 import API from "../../utils/API";
+import "./style.css"
 
 const Jumbotron = ({ user }) => {
   const opts = {
@@ -55,7 +56,7 @@ const Jumbotron = ({ user }) => {
       <section style={{ background: '#EBF8FD', minHeight: '500px' }}>
         <div className="container">
           <div className="row">
-            <div className="col-12 text-center pt-3">
+            <div className="exampleClass col-12 text-center pt-3">
               <h3 id="1">MELODY Music App</h3>
               {
                 videoId &&

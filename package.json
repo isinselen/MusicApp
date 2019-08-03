@@ -25,6 +25,8 @@
     "google-auth-library": "^4.2.5",
     "googleapis": "^41.0.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.3.16",
+    "onsenui": "^2.10.10",
+    "react-onsenui": "^1.11.2"
   }
 }
