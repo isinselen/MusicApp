@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron"
 import API from "../utils/API";
+import {withRouter} from 'react-router'
 
 class Home extends React.Component {
     state = {
@@ -18,7 +19,7 @@ class Home extends React.Component {
                     this.setState({ loaded: true, user: user.data })
                 })
         } else {
-            window.location = '/signup'
+            this.props.history.push('/signup')
         }
     }
     updateSearches(Artist) {
@@ -43,4 +44,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default withRouter(Home)
