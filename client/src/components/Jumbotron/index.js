@@ -5,7 +5,7 @@ import jsonpAdapter from 'axios-jsonp'
 import API from "../../utils/API";
 import "./style.css"
 
-const Jumbotron = ({ user }) => {
+const Jumbotron = ({ user,updateSearches}) => {
   const opts = {
     height: '390',
     width: '640',
@@ -32,6 +32,7 @@ const Jumbotron = ({ user }) => {
       headers: { 'content-type': 'application/javascript' },
       adapter: jsonpAdapter,
     })
+    
 
     return Promise.all([promise1, promise2])
       .then(results => {
@@ -41,7 +42,8 @@ const Jumbotron = ({ user }) => {
 
         console.log('GOT MUSIXMATCH DATA', results[1].data.message.body.lyrics.lyrics_body)
         setVideoLyrics(results[1].data.message.body.lyrics.lyrics_body)
-
+        console.log(artist)
+        updateSearches(artist)
         if (user)
           API.updateUser(user._id, artist, song)
       })
