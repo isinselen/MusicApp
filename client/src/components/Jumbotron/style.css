@@ -1,6 +1,7 @@
 .resultSection {
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
     font-size: 80%;
 }
 .sign-up{
@@ -230,4 +231,6 @@ section {
 		margin-left: 0;
 	}
 
+=======
+>>>>>>> 03631dbf69773f631b067d86ccd70dfd6e96a0eb
 }
