@@ -9,18 +9,18 @@ class Home extends React.Component {
         user: null
     };
 
-    componentDidMount() {
-        const userId = localStorage.getItem("userId");
-        if (userId){
-            API.getUser(userId)
-            .then(user => {
-                console.log('Got existing user in component', user)
-                this.setState({ loaded: true, user: user.data })
-            })
-        } else{
-            window.location = '/signup'
-        }
-    }
+    // componentDidMount() {
+    //     const userId = localStorage.getItem("userId");
+    //     if (userId){
+    //         API.getUser(userId)
+    //         .then(user => {
+    //             console.log('Got existing user in component', user)
+    //             this.setState({ loaded: true, user: user.data })
+    //         })
+    //     } else{
+    //         window.location = '/signup'
+    //     }
+    // }
 
     render() {
         return (
