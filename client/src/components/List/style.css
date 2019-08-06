@@ -31,3 +31,8 @@
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
+.p{
+  font-family: 'Impact, Charcoal, sans-serif';
+  font-size: 15px;
+}
