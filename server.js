@@ -20,9 +20,13 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/MusicApp");
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+
+app.get('/signup', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 // Routes
 app.get("/user/:userId", function (req, res) {
