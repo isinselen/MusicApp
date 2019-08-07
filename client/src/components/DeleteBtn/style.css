@@ -1,4 +1,6 @@
 .delete-btn {
-  float: right;
-  color: #e74944;
+  display:flex;
+    background-color:black;
+    color:goldenrod;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

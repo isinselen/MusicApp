@@ -1,8 +1,4 @@
-.resultSection {
-    display: flex;
-    flex-direction: row;
-}
-.container{
+.active{
     display:flex;
     background-color:black;
     color:goldenrod;
