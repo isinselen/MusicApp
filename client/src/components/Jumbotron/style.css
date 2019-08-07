@@ -1,7 +1,6 @@
 .resultSection {
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
     font-size: 80%;
 }
 .sign-up{
@@ -32,7 +31,12 @@ color:white;
 .body{
     background-image: url("https://previews.123rf.com/images/studiostoks/studiostoks1512/studiostoks151200136/49829587-play-button-hand-press-pop-art-retro-style-music-and-audio-the-business-concept-started.jpg")
 }
-
+.button{
+	background-color: #666;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 30px;
+	color: white;
+}
 /*/ Footer/*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
@@ -231,6 +235,4 @@ section {
 		margin-left: 0;
 	}
 
-=======
->>>>>>> 03631dbf69773f631b067d86ccd70dfd6e96a0eb
 }

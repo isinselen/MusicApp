@@ -23,7 +23,62 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"></div>
-  
+
+  <button class="button" data-music="Music">Music Gif</button>
+  <div id="gifs-appear-here">
+  </div>
+  <script type="text/javascript">
+
+    $("button").on("click", function () {
+
+        var music = $(this).attr("data-music");
+
+
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+            music + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+
+            .then(function (response) {
+
+                var results = response.data;
+
+
+                for (var i = 0; i < results.length; i++) {
+
+
+                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+
+                        var gifDiv = $("<div>");
+
+
+                        var rating = results[i].rating;
+
+
+                        var p = $("<p>").text("Rating: " + rating);
+
+
+                        var musicImage = $("<img>");
+
+
+                        musicImage.attr("src", results[i].images.fixed_height.url);
+
+
+                        gifDiv.append(p);
+                        gifDiv.append(musicImage);
+
+
+                        $("#gifs-appear-here").prepend(gifDiv);
+                    }
+                }
+            });
+    });
+</script>
+
   <footer class="footer-distributed">
 
     <div class="footer-left">
@@ -32,15 +87,15 @@
 
       <p class="footer-links">
         <a href="#" class="link-1">Home</a>
-        
+
         <a href="#">Blog</a>
-      
+
         <a href="#">Pricing</a>
-      
+
         <a href="#">About</a>
-        
+
         <a href="#">Faq</a>
-        
+
         <a href="#">Contact</a>
       </p>
 
@@ -49,10 +104,6 @@
 
     <div class="footer-center">
 
-      <div>
-        <i class="fa fa-map-marker"></i>
-        <p><span>#4 Privet Drive</span> Surrey, England</p>
-      </div>
 
       <div>
         <i class="fa fa-phone"></i>
@@ -70,7 +121,8 @@
 
       <p class="footer-company-about">
         <span>About Melody</span>
-        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
+        vehicula sit amet.
       </p>
 
       <div class="footer-icons">
