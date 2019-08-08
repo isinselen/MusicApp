@@ -3,6 +3,7 @@
     flex-direction: row;
 }
 .container{
+    width: 100vw;
     display:flex;
     background-color:black;
     color:goldenrod;

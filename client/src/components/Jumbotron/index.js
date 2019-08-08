@@ -19,7 +19,7 @@ const Jumbotron = ({ user,updateSearches}) => {
   const [videoLyrics, setVideoLyrics] = useState('')
 
   const handleArtistSearch = () => {
-    const promise1 = axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCOrYDn-Rpq-DIqgvv5naHsrsCfjPcqby4&q=${encodeURIComponent(song + ' - ' + artist)}&part=id`)
+    const promise1 = axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCYLPDcv7NmCGS86ka82UQsTSDWA8ic-SE&q=${encodeURIComponent(song + ' - ' + artist)}&part=id`)
 
     const promise2 = axios.get(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get`, {
       params: {
@@ -55,7 +55,7 @@ const Jumbotron = ({ user,updateSearches}) => {
         <i className="fas fa-angle-double-down fa-3x animated swing delay-1s"></i>
       </div>
 
-      <section style={{ background: '#EBF8FD', minHeight: '500px' }}>
+      <section style={{ background: 'black', minHeight: '500px' }}>
         <div className="container">
           <div className="row">
             <div className="exampleClass col-12 text-center pt-3">
