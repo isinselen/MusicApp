@@ -7,7 +7,9 @@ function Nav() {
       <a className="navbar-brand" href="/">
         Melody
       </a>
-      <NavLink to={`/signup`} activeClassName="active">Signup</NavLink>
+      <NavLink to={`/signup`} className= "sign-up" activeClassName="active">Sign up</NavLink>
+
+      <NavLink to={`/questions`} className= "start-trivia" activeClassName="active">Start Trivia</NavLink>
     </nav>
   );
 }

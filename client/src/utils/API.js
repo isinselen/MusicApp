@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+  getQuestions: function() {
+    const queryURL= "https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple";
+    return axios.get(queryURL);
+  },
   getUser: function(userId) {
     return axios.get(`/user/${userId}`);
   },
@@ -9,7 +13,7 @@ export default {
   },
   updateUser: function(userId, artist, song) {
     return axios.put("/user/addSearch", { userId: userId, artist: artist, song: song })
-  },
+  }
 };
 // import axios from "axios";
 // function getLyrics(){
