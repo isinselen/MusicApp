@@ -1,1 +1,14 @@
-{"version":3,"sources":["/Users/isinselen/Desktop/MusicApp/client/src/components/Jumbotron/style.css","main.239a1b45.chunk.css"],"names":[],"mappings":"AAAA,eACI,YAAA,CACA,kBCCJ","file":"main.239a1b45.chunk.css","sourcesContent":[".resultSection {\n    display: flex;\n    flex-direction: row;\n}",".resultSection {\n    display: flex;\n    flex-direction: row;\n}\n"]}
+{
+    "version": 3,
+    "sources": [
+        "/Users/isinselen/Desktop/MusicApp/client/src/components/Jumbotron/style.css",
+        "main.239a1b45.chunk.css"
+    ],
+    "names": [],
+    "mappings": "AAAA,eACI,YAAA,CACA,kBCCJ",
+    "file": "main.239a1b45.chunk.css",
+    "sourcesContent": [
+        ".resultSection {\n    display: flex;\n    flex-direction: row;\n}",
+        ".resultSection {\n    display: flex;\n    flex-direction: row;\n}\n"
+    ]
+}

@@ -1,6 +1,10 @@
-.delete-btn {
-  display:flex;
+.active{
+    display:flex;
     background-color:black;
     color:goldenrod;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signIn {
+    background-color:black;
 }

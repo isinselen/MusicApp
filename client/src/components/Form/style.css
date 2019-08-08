@@ -1,6 +1,6 @@
-.delete-btn {
-  display:flex;
+.pull-right{
+    display:flex;
     background-color:black;
-    color:goldenrod;
+    color:rgb(145, 109, 20);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

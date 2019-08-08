@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-danger">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-danger signIn">
       <a className="navbar-brand" href="/">
         Melody
       </a>

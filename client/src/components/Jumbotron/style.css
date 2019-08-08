@@ -1,8 +1,16 @@
 .resultSection {
     display: flex;
     flex-direction: row;
+}
+.container{
+    width: 100vw;
+    display:flex;
+    background-color:black;
+    color:goldenrod;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 80%;
 }
+
 .sign-up{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 30px;
